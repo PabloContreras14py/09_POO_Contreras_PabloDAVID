@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="desktop.inventario.controller.InventarioController"
+            stylesheets="@style.css"
+            styleClass="root">
+
+    <!-- BARRA SUPERIOR -->
+    <top>
+
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              styleClass="top-bar">
+
+            <padding>
+                <Insets top="18"
+                        right="30"
+                        bottom="18"
+                        left="30"/>
+            </padding>
+
+            <Label text="StockFlow"
+                   styleClass="logo"/>
+
+            <Label text="Gestión de Inventario"
+                   styleClass="top-subtitle"/>
+
+        </HBox>
+
+    </top>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <center>
+
+        <VBox spacing="25">
+
+            <padding>
+                <Insets top="30"
+                        right="40"
+                        bottom="30"
+                        left="40"/>
+            </padding>
+
+
+            <!-- TITULO -->
+
+            <VBox spacing="5">
+
+                <Label text="Inventario"
+                       styleClass="title"/>
+
+                <Label text="Administra tus productos y controla el stock."
+                       styleClass="subtitle"/>
+
+            </VBox>
+
+
+            <!-- TARJETAS DE RESUMEN -->
+
+            <HBox spacing="18">
+
+                <VBox styleClass="summary-card"
+                      spacing="5">
+
+                    <Label text="Total productos"
+                           styleClass="card-label"/>
+
+                    <Label fx:id="lblTotalProductos"
+                           text="0"
+                           styleClass="card-number"/>
+
+                </VBox>
+
+
+                <VBox styleClass="summary-card"
+                      spacing="5">
+
+                    <Label text="Stock bajo"
+                           styleClass="card-label"/>
+
+                    <Label fx:id="lblStockBajo"
+                           text="0"
+                           styleClass="card-number"/>
+
+                </VBox>
+
+
+                <VBox styleClass="summary-card"
+                      spacing="5">
+
+                    <Label text="Agotados"
+                           styleClass="card-label"/>
+
+                    <Label fx:id="lblAgotados"
+                           text="0"
+                           styleClass="card-number"/>
+
+                </VBox>
+
+            </HBox>
+
+
+            <!-- FORMULARIO -->
+
+            <VBox styleClass="form-card"
+                  spacing="15">
+
+                <Label text="Nuevo producto"
+                       styleClass="section-title"/>
+
+                <HBox spacing="12">
+
+                    <TextField fx:id="txtNombre"
+                               promptText="Nombre del producto"
+                               styleClass="input"/>
+
+                    <TextField fx:id="txtCategoria"
+                               promptText="Categoría"
+                               styleClass="input"/>
+
+                    <TextField fx:id="txtPrecio"
+                               promptText="Precio"
+                               styleClass="input-small"/>
+
+                    <TextField fx:id="txtStock"
+                               promptText="Stock"
+                               styleClass="input-small"/>
+
+                    <TextField fx:id="txtStockMinimo"
+                               promptText="Stock mínimo"
+                               styleClass="input-small"/>
+
+                    <Button text="Agregar"
+                            onAction="#agregarProducto"
+                            styleClass="primary-button"/>
+
+                </HBox>
+
+                <Label fx:id="lblMensaje"
+                       text=""
+                       styleClass="message"/>
+
+            </VBox>
+
+
+            <!-- TABLA -->
+
+            <VBox styleClass="table-card"
+                  spacing="15">
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <Label text="Productos"
+                           styleClass="section-title"/>
+
+                    <HBox HBox.hgrow="ALWAYS"/>
+
+                    <Button text="Limpiar campos"
+                            onAction="#limpiarFormulario"
+                            styleClass="secondary-button"/>
+
+                    <Button text="Eliminar seleccionado"
+                            onAction="#eliminarProducto"
+                            styleClass="delete-button"/>
+
+                </HBox>
+
+
+                <TableView fx:id="tablaProductos"
+                           prefHeight="300">
+
+                    <columns>
+
+                        <TableColumn fx:id="colId"
+                                     text="ID"
+                                     prefWidth="60"/>
+
+                        <TableColumn fx:id="colNombre"
+                                     text="Producto"
+                                     prefWidth="200"/>
+
+                        <TableColumn fx:id="colCategoria"
+                                     text="Categoría"
+                                     prefWidth="150"/>
+
+                        <TableColumn fx:id="colPrecio"
+                                     text="Precio"
+                                     prefWidth="100"/>
+
+                        <TableColumn fx:id="colStock"
+                                     text="Stock"
+                                     prefWidth="90"/>
+
+                        <TableColumn fx:id="colEstado"
+                                     text="Estado"
+                                     prefWidth="130"/>
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

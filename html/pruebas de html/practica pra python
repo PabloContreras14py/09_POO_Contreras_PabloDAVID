@@ -1,0 +1,8 @@
+stock = 5
+
+if stock <= 10:
+    print("Solicitar reposición del producto")
+
+compra=500
+
+if compra

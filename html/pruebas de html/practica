@@ -1,0 +1,26 @@
+# Ejercicio 1: Validación de aprobación académica
+nota = 15
+
+if nota >= 13:
+    print('Estudiante aprobado')
+
+
+# Ejercicio 2: Control de stock
+stock = 5
+
+if stock <= 10:
+    print('Solicitar reposición del producto')
+
+
+# Ejercicio 3: Control de límite de crédito
+ingreso = 3000
+
+if ingreso >= 2500:
+    print('Cliente cumple requisitos para crédito especial')
+
+
+# Ejercicio 4: Validación de asistencia laboral
+retraso = 15
+
+if retraso > 10:
+    print('Registrar tardanza del trabajador')
